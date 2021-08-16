@@ -6,6 +6,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // src_pcm
 arma::mat src_pcm(arma::imat& clmat);
 RcppExport SEXP _T4cluster_src_pcm(SEXP clmatSEXP) {
@@ -191,6 +196,22 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// gmm_03F
+arma::mat gmm_03F(arma::mat& X, int k, int maxiter, bool usediag, int lowdim, int nruns);
+RcppExport SEXP _T4cluster_gmm_03F(SEXP XSEXP, SEXP kSEXP, SEXP maxiterSEXP, SEXP usediagSEXP, SEXP lowdimSEXP, SEXP nrunsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< int >::type k(kSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< bool >::type usediag(usediagSEXP);
+    Rcpp::traits::input_parameter< int >::type lowdim(lowdimSEXP);
+    Rcpp::traits::input_parameter< int >::type nruns(nrunsSEXP);
+    rcpp_result_gen = Rcpp::wrap(gmm_03F(X, k, maxiter, usediag, lowdim, nruns));
+    return rcpp_result_gen;
+END_RCPP
+}
 // arma_kmeans_random
 Rcpp::List arma_kmeans_random(arma::mat& X, int k, int maxiter);
 RcppExport SEXP _T4cluster_arma_kmeans_random(SEXP XSEXP, SEXP kSEXP, SEXP maxiterSEXP) {
@@ -347,6 +368,38 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
     Rcpp::traits::input_parameter< double >::type sigma(sigmaSEXP);
     rcpp_result_gen = Rcpp::wrap(cpp_sc12L(D, K, usekmeans, maxiter, sigma));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sp_spkmeans
+Rcpp::List sp_spkmeans(arma::mat& X, int K, std::string initializer, int maxiter, double abstol, bool printer);
+RcppExport SEXP _T4cluster_sp_spkmeans(SEXP XSEXP, SEXP KSEXP, SEXP initializerSEXP, SEXP maxiterSEXP, SEXP abstolSEXP, SEXP printerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< int >::type K(KSEXP);
+    Rcpp::traits::input_parameter< std::string >::type initializer(initializerSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
+    Rcpp::traits::input_parameter< bool >::type printer(printerSEXP);
+    rcpp_result_gen = Rcpp::wrap(sp_spkmeans(X, K, initializer, maxiter, abstol, printer));
+    return rcpp_result_gen;
+END_RCPP
+}
+// sp_gskmeans
+Rcpp::List sp_gskmeans(arma::mat& X, int K, std::string initializer, int maxiter, double abstol, bool printer);
+RcppExport SEXP _T4cluster_sp_gskmeans(SEXP XSEXP, SEXP KSEXP, SEXP initializerSEXP, SEXP maxiterSEXP, SEXP abstolSEXP, SEXP printerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< int >::type K(KSEXP);
+    Rcpp::traits::input_parameter< std::string >::type initializer(initializerSEXP);
+    Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
+    Rcpp::traits::input_parameter< double >::type abstol(abstolSEXP);
+    Rcpp::traits::input_parameter< bool >::type printer(printerSEXP);
+    rcpp_result_gen = Rcpp::wrap(sp_gskmeans(X, K, initializer, maxiter, abstol, printer));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -675,6 +728,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_T4cluster_gmm_density", (DL_FUNC) &_T4cluster_gmm_density, 4},
     {"_T4cluster_gmm_pdist_wass2", (DL_FUNC) &_T4cluster_gmm_pdist_wass2, 2},
     {"_T4cluster_gmm_w2barycenter", (DL_FUNC) &_T4cluster_gmm_w2barycenter, 3},
+    {"_T4cluster_gmm_03F", (DL_FUNC) &_T4cluster_gmm_03F, 6},
     {"_T4cluster_arma_kmeans_random", (DL_FUNC) &_T4cluster_arma_kmeans_random, 3},
     {"_T4cluster_arma_kmeans_kmeanspp", (DL_FUNC) &_T4cluster_arma_kmeans_kmeanspp, 4},
     {"_T4cluster_sc_2015LB_commute", (DL_FUNC) &_T4cluster_sc_2015LB_commute, 2},
@@ -686,6 +740,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_T4cluster_cpp_sc10Z", (DL_FUNC) &_T4cluster_cpp_sc10Z, 4},
     {"_T4cluster_cpp_sc11Y", (DL_FUNC) &_T4cluster_cpp_sc11Y, 6},
     {"_T4cluster_cpp_sc12L", (DL_FUNC) &_T4cluster_cpp_sc12L, 5},
+    {"_T4cluster_sp_spkmeans", (DL_FUNC) &_T4cluster_sp_spkmeans, 6},
+    {"_T4cluster_sp_gskmeans", (DL_FUNC) &_T4cluster_sp_gskmeans, 6},
     {"_T4cluster_fast_loss_prj", (DL_FUNC) &_T4cluster_fast_loss_prj, 6},
     {"_T4cluster_cpp_LRR", (DL_FUNC) &_T4cluster_cpp_LRR, 3},
     {"_T4cluster_cpp_LRSC", (DL_FUNC) &_T4cluster_cpp_LRSC, 4},

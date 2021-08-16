@@ -1,12 +1,14 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Tools for Cluster Analysis <a href='https://kyoustat.com/T4cluster/'><img src='man/figures/logo.png' align="right" height="150" /></a>
+# Tools for Cluster Analysis <a href='https://kisungyou.com/T4cluster/'><img src='man/figures/logo.png' align="right" height="150" /></a>
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/T4cluster)](https://CRAN.R-project.org/package=T4cluster)
 [![Travis build
-status](https://travis-ci.com/kyoustat/T4cluster.svg?branch=master)](https://travis-ci.com/kyoustat/T4cluster)
+status](https://travis-ci.com/kisungyou/T4cluster.svg?branch=master)](https://travis-ci.com/kisungyou/T4cluster)
 [![](https://cranlogs.r-pkg.org/badges/T4cluster)](https://cran.r-project.org/package=T4cluster)
 <!-- badges: end -->
 
@@ -16,6 +18,7 @@ cluster analysis. It contains several classes of algorithms for
 
 -   Clustering with Vector-Valued Data
 -   Clustering with Functional Data
+-   Clustering on the Unit Hypersphere
 -   Subspace Clustering
 -   Measures : Compare Two Clusterings
 -   Learning with Multiple Clusterings
@@ -36,7 +39,7 @@ And the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("kyoustat/T4cluster")
+devtools::install_github("kisungyou/T4cluster")
 ```
 
 ## Minimal Example : Clustering SMILEY Data
@@ -50,7 +53,7 @@ dataset, which can be generated as follows;
 library(T4cluster)
 
 # generate the data
-smiley = T4cluster::gensmiley(n=200)
+smiley = T4cluster::genSMILEY(n=200)
 data   = smiley$data
 label  = smiley$label
 

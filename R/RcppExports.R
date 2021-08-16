@@ -57,6 +57,10 @@ gmm_w2barycenter <- function(weight, mean, vars) {
     .Call('_T4cluster_gmm_w2barycenter', PACKAGE = 'T4cluster', weight, mean, vars)
 }
 
+gmm_03F <- function(X, k, maxiter, usediag, lowdim, nruns) {
+    .Call('_T4cluster_gmm_03F', PACKAGE = 'T4cluster', X, k, maxiter, usediag, lowdim, nruns)
+}
+
 arma_kmeans_random <- function(X, k, maxiter) {
     .Call('_T4cluster_arma_kmeans_random', PACKAGE = 'T4cluster', X, k, maxiter)
 }
@@ -99,6 +103,14 @@ cpp_sc11Y <- function(idmat, distmat, K, usekmeans, maxiter, rho) {
 
 cpp_sc12L <- function(D, K, usekmeans, maxiter, sigma) {
     .Call('_T4cluster_cpp_sc12L', PACKAGE = 'T4cluster', D, K, usekmeans, maxiter, sigma)
+}
+
+sp_spkmeans <- function(X, K, initializer, maxiter, abstol, printer) {
+    .Call('_T4cluster_sp_spkmeans', PACKAGE = 'T4cluster', X, K, initializer, maxiter, abstol, printer)
+}
+
+sp_gskmeans <- function(X, K, initializer, maxiter, abstol, printer) {
+    .Call('_T4cluster_sp_gskmeans', PACKAGE = 'T4cluster', X, K, initializer, maxiter, abstol, printer)
 }
 
 fast_loss_prj <- function(nS, dS, mS, PS, xS, muS) {
