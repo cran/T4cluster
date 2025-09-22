@@ -1,14 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Tools for Cluster Analysis <a href='https://kisungyou.com/T4cluster/'><img src='man/figures/logo.png' align="right" height="150" /></a>
+# Tools for Cluster Analysis <a href='https://www.kisungyou.com/T4cluster/'><img src='man/figures/logo.png' align="right" height="150" /></a>
 
 <!-- badges: start -->
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/T4cluster)](https://CRAN.R-project.org/package=T4cluster)
-[![Travis build
-status](https://travis-ci.com/kisungyou/T4cluster.svg?branch=master)](https://travis-ci.com/kisungyou/T4cluster)
 [![](https://cranlogs.r-pkg.org/badges/T4cluster)](https://cran.r-project.org/package=T4cluster)
 <!-- badges: end -->
 
@@ -16,12 +14,14 @@ status](https://travis-ci.com/kisungyou/T4cluster.svg?branch=master)](https://tr
 with comprehensive coverage in relevant topics around the study of
 cluster analysis. It contains several classes of algorithms for
 
--   Clustering with Vector-Valued Data
--   Clustering with Functional Data
--   Clustering on the Unit Hypersphere
--   Subspace Clustering
--   Measures : Compare Two Clusterings
--   Learning with Multiple Clusterings
+- Clustering with Vector-Valued Data
+- Clustering with Functional Data
+- Clustering with Empirical Distributions
+- Clustering on the Unit Hypersphere
+- Subspace Clustering
+- Measures : Compare Two Clusterings
+- Measures : Quality of a Clustering
+- Learning with Multiple Clusterings
 
 and other utility functions for further use. If you request additional
 functionalities or have suggestions, please contact maintainer.

@@ -550,7 +550,7 @@ gibbs.loss.prj=function(x , P, mu = NULL, subspace = F){
   
 }
 #' @keywords internal
-log.gibbs.loss = function(x, P.list, mu = Inf,temperature=1, subspace =F){
+log_gibbs_loss = function(x, P.list, mu = Inf,temperature=1, subspace =F){
   
   #P.list is a list of projection matrices, indexed by P.list[[k]]
   #mu is the list of theta, where each can be accessed as mu[[k]]

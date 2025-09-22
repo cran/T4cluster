@@ -176,7 +176,7 @@ arma::urowvec label_gmm(arma::mat data, int K, int maxiter){
 Rcpp::List sc_unnormalized(arma::mat W, int K, bool usekmeans, int maxiter){
   // build laplacian
   arma::mat A = W; 
-  A.diag().fill(0.0);
+  // A.diag().fill(0.0);
   // int  N = A.n_rows;
   arma::vec Dvec = arma::sum(A, 1);
   arma::mat Dmat = arma::diagmat(Dvec);
@@ -202,7 +202,7 @@ Rcpp::List sc_unnormalized(arma::mat W, int K, bool usekmeans, int maxiter){
 Rcpp::List sc_normalNJW(arma::mat W, int K, bool usekmeans, int maxiter){
   // build laplacian 
   arma::mat A = W; 
-  A.diag().fill(0.0);
+  // A.diag().fill(0.0);
   int N = A.n_rows;
   arma::vec Dvec = arma::sum(A, 1);
   arma::vec Dhalfinv(N,fill::zeros);
@@ -238,7 +238,7 @@ Rcpp::List sc_normalNJW(arma::mat W, int K, bool usekmeans, int maxiter){
 Rcpp::List sc_normalSM(arma::mat W, int K, bool usekmeans, int maxiter){
   // build laplacian
   arma::mat A = W; 
-  A.diag().fill(0.0);
+  // A.diag().fill(0.0);
   int N = A.n_rows;
   arma::vec Dvec = arma::sum(A, 1);
   arma::vec Dinv(N,fill::zeros);
@@ -343,11 +343,13 @@ arma::mat cvi_helper_classmean(arma::mat X, arma::uvec label){
 }
 arma::field<arma::uvec> cvi_helper_classindex(arma::uvec label){
   // int N = label.n_elem;
-  int K = label.max() + 1;
+  
+  arma::uvec unique_label = arma::unique(label);
+  int K = unique_label.n_elem;
   
   arma::field<arma::uvec> output(K);
   for (int k=0; k<K; k++){
-    output(k) = arma::find(label==k);
+    output(k) = arma::find(label==unique_label(k));
   }
   return(output);
 }
@@ -461,6 +463,26 @@ arma::mat  gauss_rmvnorm(int N, arma::vec mu, arma::mat var){
   arma::mat output(N,d,fill::zeros);
   for (int n=0; n<N; n++){
     output.row(n) = murow + arma::trans(tmat.col(n));
+  }
+  return(output);
+}
+
+// SECTION 8 : NUMERICAL TOOLS =================================================
+// [[Rcpp::export]]
+double integrate_1d(arma::vec &tseq, arma::vec &fval){
+  // parameters
+  int N = tseq.n_elem;
+  double output = 0.0;
+  double dt = 0.0;
+  double add_obj = 0.0;
+  
+  // iteration
+  for (int i=0;i<(N-1);i++){
+    dt = tseq(i+1)-tseq(i);
+    add_obj = (fval(i) + fval(i+1))*dt/2.0;
+    if (add_obj > arma::datum::eps){
+      output += add_obj;
+    }
   }
   return(output);
 }

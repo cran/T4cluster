@@ -1,23 +1,23 @@
 Package: T4cluster
 Type: Package
 Title: Tools for Cluster Analysis
-Version: 0.1.2
-Authors@R: c(person("Kisung", "You", role = c("aut", "cre"), email = "kisungyou@outlook.com",comment=c(ORCID="0000-0002-8584-459X")))
+Version: 0.1.4
+Authors@R: c(person("Kisung", "You", role = c("aut", "cre"), email = "kisung.you@outlook.com",comment=c(ORCID="0000-0002-8584-459X")))
 Encoding: UTF-8
 Description: Cluster analysis is one of the most fundamental problems in data science. We provide a variety of algorithms from clustering to the learning on the space of partitions. See Hennig, Meila, and Rocci (2016, ISBN:9781466551886) for general exposition to cluster analysis.
 License: MIT + file LICENSE
 Imports: Rcpp (>= 1.0.5), Rdpack, Rdimtools, ADMM, MASS, fda, ggplot2,
         lpSolve, maotai, mclustcomp, rstiefel, scatterplot3d, stats,
         utils
-URL: https://kisungyou.com/T4cluster/
+URL: https://www.kisungyou.com/T4cluster/
 BugReports: https://github.com/kisungyou/T4cluster/issues
 LinkingTo: Rcpp, RcppArmadillo
 RdMacros: Rdpack
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.2
 Depends: R (>= 2.10)
 NeedsCompilation: yes
-Packaged: 2021-08-14 02:57:45 UTC; kisung
-Author: Kisung You [aut, cre] (<https://orcid.org/0000-0002-8584-459X>)
-Maintainer: Kisung You <kisungyou@outlook.com>
+Packaged: 2025-09-22 02:54:55 UTC; kyou
+Author: Kisung You [aut, cre] (ORCID: <https://orcid.org/0000-0002-8584-459X>)
+Maintainer: Kisung You <kisung.you@outlook.com>
 Repository: CRAN
-Date/Publication: 2021-08-16 07:20:06 UTC
+Date/Publication: 2025-09-22 07:20:07 UTC

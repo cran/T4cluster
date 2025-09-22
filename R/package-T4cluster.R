@@ -1,9 +1,8 @@
 #' Tools for Cluster Analysis
-#'
-#' @docType package
+#' 
+#' @noRd
 #' @name T4cluster
 #' @aliases package-T4cluster
-#' @noRd
 #' @importFrom fda eval.fd create.bspline.basis smooth.basis pca.fd
 #' @import Rdpack
 #' @import maotai
@@ -11,14 +10,14 @@
 #' @importFrom ADMM admm.bp
 #' @importFrom lpSolve lp
 #' @importFrom Rdimtools do.pca
-#' @importFrom stats as.dist dist rnorm runif hclust cutree kmeans density rmultinom
+#' @importFrom stats as.dist dist rnorm runif hclust cutree kmeans density rmultinom median knots ecdf
 #' @importFrom utils packageVersion getFromNamespace 
 #' @importFrom Rcpp evalCpp
 #' @importFrom rstiefel rustiefel
 #' @importFrom mclustcomp mclustcomp
 #' @importFrom MASS mvrnorm Null
 #' @importFrom scatterplot3d scatterplot3d
-#' @useDynLib T4cluster
+#' @useDynLib T4cluster, .registration = TRUE
 NULL
 
 # # Clustering the well-known "Canadian temperature" data (Ramsay & Silverman)

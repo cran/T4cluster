@@ -75,6 +75,24 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// spkmeans_gibbs
+Rcpp::List spkmeans_gibbs(int burn_in, int nsample, const arma::mat& X, double gamma_a, double gamma_b, arma::vec G, arma::vec freq, bool printer);
+RcppExport SEXP _T4cluster_spkmeans_gibbs(SEXP burn_inSEXP, SEXP nsampleSEXP, SEXP XSEXP, SEXP gamma_aSEXP, SEXP gamma_bSEXP, SEXP GSEXP, SEXP freqSEXP, SEXP printerSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type burn_in(burn_inSEXP);
+    Rcpp::traits::input_parameter< int >::type nsample(nsampleSEXP);
+    Rcpp::traits::input_parameter< const arma::mat& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< double >::type gamma_a(gamma_aSEXP);
+    Rcpp::traits::input_parameter< double >::type gamma_b(gamma_bSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type G(GSEXP);
+    Rcpp::traits::input_parameter< arma::vec >::type freq(freqSEXP);
+    Rcpp::traits::input_parameter< bool >::type printer(printerSEXP);
+    rcpp_result_gen = Rcpp::wrap(spkmeans_gibbs(burn_in, nsample, X, gamma_a, gamma_b, G, freq, printer));
+    return rcpp_result_gen;
+END_RCPP
+}
 // eval_label
 arma::uvec eval_label(arma::mat& X, arma::mat parMU, arma::cube parSIG, arma::vec parPI);
 RcppExport SEXP _T4cluster_eval_label(SEXP XSEXP, SEXP parMUSEXP, SEXP parSIGSEXP, SEXP parPISEXP) {
@@ -236,6 +254,18 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< int >::type k(kSEXP);
     Rcpp::traits::input_parameter< int >::type maxiter(maxiterSEXP);
     rcpp_result_gen = Rcpp::wrap(arma_kmeans_kmeanspp(X, init, k, maxiter));
+    return rcpp_result_gen;
+END_RCPP
+}
+// index_CH
+double index_CH(arma::mat& X, arma::uvec label);
+RcppExport SEXP _T4cluster_index_CH(SEXP XSEXP, SEXP labelSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::uvec >::type label(labelSEXP);
+    rcpp_result_gen = Rcpp::wrap(index_CH(X, label));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -712,6 +742,18 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// integrate_1d
+double integrate_1d(arma::vec& tseq, arma::vec& fval);
+RcppExport SEXP _T4cluster_integrate_1d(SEXP tseqSEXP, SEXP fvalSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec& >::type tseq(tseqSEXP);
+    Rcpp::traits::input_parameter< arma::vec& >::type fval(fvalSEXP);
+    rcpp_result_gen = Rcpp::wrap(integrate_1d(tseq, fval));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_T4cluster_src_pcm", (DL_FUNC) &_T4cluster_src_pcm, 1},
@@ -719,6 +761,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_T4cluster_coreset_18B", (DL_FUNC) &_T4cluster_coreset_18B, 4},
     {"_T4cluster_fpp_pdist_lp", (DL_FUNC) &_T4cluster_fpp_pdist_lp, 3},
     {"_T4cluster_gauss_w2median", (DL_FUNC) &_T4cluster_gauss_w2median, 5},
+    {"_T4cluster_spkmeans_gibbs", (DL_FUNC) &_T4cluster_spkmeans_gibbs, 8},
     {"_T4cluster_eval_label", (DL_FUNC) &_T4cluster_eval_label, 4},
     {"_T4cluster_gmm_skeleton", (DL_FUNC) &_T4cluster_gmm_skeleton, 2},
     {"_T4cluster_gmm_armadillo", (DL_FUNC) &_T4cluster_gmm_armadillo, 4},
@@ -731,6 +774,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_T4cluster_gmm_03F", (DL_FUNC) &_T4cluster_gmm_03F, 6},
     {"_T4cluster_arma_kmeans_random", (DL_FUNC) &_T4cluster_arma_kmeans_random, 3},
     {"_T4cluster_arma_kmeans_kmeanspp", (DL_FUNC) &_T4cluster_arma_kmeans_kmeanspp, 4},
+    {"_T4cluster_index_CH", (DL_FUNC) &_T4cluster_index_CH, 2},
     {"_T4cluster_sc_2015LB_commute", (DL_FUNC) &_T4cluster_sc_2015LB_commute, 2},
     {"_T4cluster_cpp_scNJW", (DL_FUNC) &_T4cluster_cpp_scNJW, 5},
     {"_T4cluster_cpp_scSM", (DL_FUNC) &_T4cluster_cpp_scSM, 5},
@@ -765,6 +809,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_T4cluster_gmm_sample", (DL_FUNC) &_T4cluster_gmm_sample, 4},
     {"_T4cluster_gmm_loglkd", (DL_FUNC) &_T4cluster_gmm_loglkd, 4},
     {"_T4cluster_gauss_rmvnorm", (DL_FUNC) &_T4cluster_gauss_rmvnorm, 3},
+    {"_T4cluster_integrate_1d", (DL_FUNC) &_T4cluster_integrate_1d, 2},
     {NULL, NULL, 0}
 };
 

@@ -2,206 +2,218 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 src_pcm <- function(clmat) {
-    .Call('_T4cluster_src_pcm', PACKAGE = 'T4cluster', clmat)
+    .Call(`_T4cluster_src_pcm`, clmat)
 }
 
 src_psm <- function(clmat) {
-    .Call('_T4cluster_src_psm', PACKAGE = 'T4cluster', clmat)
+    .Call(`_T4cluster_src_psm`, clmat)
 }
 
 coreset_18B <- function(X, K, M, maxiter) {
-    .Call('_T4cluster_coreset_18B', PACKAGE = 'T4cluster', X, K, M, maxiter)
+    .Call(`_T4cluster_coreset_18B`, X, K, M, maxiter)
 }
 
 fpp_pdist_lp <- function(vect, vecf, myp) {
-    .Call('_T4cluster_fpp_pdist_lp', PACKAGE = 'T4cluster', vect, vecf, myp)
+    .Call(`_T4cluster_fpp_pdist_lp`, vect, vecf, myp)
 }
 
 gauss_w2median <- function(weight, mean, vars, maxiter = 100L, abstol = 1e-8) {
-    .Call('_T4cluster_gauss_w2median', PACKAGE = 'T4cluster', weight, mean, vars, maxiter, abstol)
+    .Call(`_T4cluster_gauss_w2median`, weight, mean, vars, maxiter, abstol)
+}
+
+spkmeans_gibbs <- function(burn_in, nsample, X, gamma_a, gamma_b, G, freq, printer) {
+    .Call(`_T4cluster_spkmeans_gibbs`, burn_in, nsample, X, gamma_a, gamma_b, G, freq, printer)
 }
 
 eval_label <- function(X, parMU, parSIG, parPI) {
-    .Call('_T4cluster_eval_label', PACKAGE = 'T4cluster', X, parMU, parSIG, parPI)
+    .Call(`_T4cluster_eval_label`, X, parMU, parSIG, parPI)
 }
 
 gmm_skeleton <- function(X, k) {
-    .Call('_T4cluster_gmm_skeleton', PACKAGE = 'T4cluster', X, k)
+    .Call(`_T4cluster_gmm_skeleton`, X, k)
 }
 
 gmm_armadillo <- function(X, k, maxiter, usediag) {
-    .Call('_T4cluster_gmm_armadillo', PACKAGE = 'T4cluster', X, k, maxiter, usediag)
+    .Call(`_T4cluster_gmm_armadillo`, X, k, maxiter, usediag)
 }
 
 gmm_11R <- function(X, K, lambda, maxiter, usediag) {
-    .Call('_T4cluster_gmm_11R', PACKAGE = 'T4cluster', X, K, lambda, maxiter, usediag)
+    .Call(`_T4cluster_gmm_11R`, X, K, lambda, maxiter, usediag)
 }
 
 gmm_16Gfix <- function(X, k, weight, maxiter, usediag) {
-    .Call('_T4cluster_gmm_16Gfix', PACKAGE = 'T4cluster', X, k, weight, maxiter, usediag)
+    .Call(`_T4cluster_gmm_16Gfix`, X, k, weight, maxiter, usediag)
 }
 
 gmm_combine_wsum <- function(gmmlist, weight) {
-    .Call('_T4cluster_gmm_combine_wsum', PACKAGE = 'T4cluster', gmmlist, weight)
+    .Call(`_T4cluster_gmm_combine_wsum`, gmmlist, weight)
 }
 
 gmm_density <- function(coords, weight, mean, variance) {
-    .Call('_T4cluster_gmm_density', PACKAGE = 'T4cluster', coords, weight, mean, variance)
+    .Call(`_T4cluster_gmm_density`, coords, weight, mean, variance)
 }
 
 gmm_pdist_wass2 <- function(mean, variance) {
-    .Call('_T4cluster_gmm_pdist_wass2', PACKAGE = 'T4cluster', mean, variance)
+    .Call(`_T4cluster_gmm_pdist_wass2`, mean, variance)
 }
 
 gmm_w2barycenter <- function(weight, mean, vars) {
-    .Call('_T4cluster_gmm_w2barycenter', PACKAGE = 'T4cluster', weight, mean, vars)
+    .Call(`_T4cluster_gmm_w2barycenter`, weight, mean, vars)
 }
 
 gmm_03F <- function(X, k, maxiter, usediag, lowdim, nruns) {
-    .Call('_T4cluster_gmm_03F', PACKAGE = 'T4cluster', X, k, maxiter, usediag, lowdim, nruns)
+    .Call(`_T4cluster_gmm_03F`, X, k, maxiter, usediag, lowdim, nruns)
 }
 
 arma_kmeans_random <- function(X, k, maxiter) {
-    .Call('_T4cluster_arma_kmeans_random', PACKAGE = 'T4cluster', X, k, maxiter)
+    .Call(`_T4cluster_arma_kmeans_random`, X, k, maxiter)
 }
 
 arma_kmeans_kmeanspp <- function(X, init, k, maxiter) {
-    .Call('_T4cluster_arma_kmeans_kmeanspp', PACKAGE = 'T4cluster', X, init, k, maxiter)
+    .Call(`_T4cluster_arma_kmeans_kmeanspp`, X, init, k, maxiter)
+}
+
+index_CH <- function(X, label) {
+    .Call(`_T4cluster_index_CH`, X, label)
 }
 
 sc_2015LB_commute <- function(D, K) {
-    .Call('_T4cluster_sc_2015LB_commute', PACKAGE = 'T4cluster', D, K)
+    .Call(`_T4cluster_sc_2015LB_commute`, D, K)
 }
 
 cpp_scNJW <- function(D, K, sigma, usekmeans, maxiter) {
-    .Call('_T4cluster_cpp_scNJW', PACKAGE = 'T4cluster', D, K, sigma, usekmeans, maxiter)
+    .Call(`_T4cluster_cpp_scNJW`, D, K, sigma, usekmeans, maxiter)
 }
 
 cpp_scSM <- function(D, K, sigma, usekmeans, maxiter) {
-    .Call('_T4cluster_cpp_scSM', PACKAGE = 'T4cluster', D, K, sigma, usekmeans, maxiter)
+    .Call(`_T4cluster_cpp_scSM`, D, K, sigma, usekmeans, maxiter)
 }
 
 cpp_scUL <- function(D, K, sigma, usekmeans, maxiter) {
-    .Call('_T4cluster_cpp_scUL', PACKAGE = 'T4cluster', D, K, sigma, usekmeans, maxiter)
+    .Call(`_T4cluster_cpp_scUL`, D, K, sigma, usekmeans, maxiter)
 }
 
 cpp_sc05Z <- function(D, K, nnbd, usekmeans, maxiter) {
-    .Call('_T4cluster_cpp_sc05Z', PACKAGE = 'T4cluster', D, K, nnbd, usekmeans, maxiter)
+    .Call(`_T4cluster_cpp_sc05Z`, D, K, nnbd, usekmeans, maxiter)
 }
 
 cpp_sc09G <- function(D, K, nnbd, usekmeans, maxiter) {
-    .Call('_T4cluster_cpp_sc09G', PACKAGE = 'T4cluster', D, K, nnbd, usekmeans, maxiter)
+    .Call(`_T4cluster_cpp_sc09G`, D, K, nnbd, usekmeans, maxiter)
 }
 
 cpp_sc10Z <- function(D, K, usekmeans, maxiter) {
-    .Call('_T4cluster_cpp_sc10Z', PACKAGE = 'T4cluster', D, K, usekmeans, maxiter)
+    .Call(`_T4cluster_cpp_sc10Z`, D, K, usekmeans, maxiter)
 }
 
 cpp_sc11Y <- function(idmat, distmat, K, usekmeans, maxiter, rho) {
-    .Call('_T4cluster_cpp_sc11Y', PACKAGE = 'T4cluster', idmat, distmat, K, usekmeans, maxiter, rho)
+    .Call(`_T4cluster_cpp_sc11Y`, idmat, distmat, K, usekmeans, maxiter, rho)
 }
 
 cpp_sc12L <- function(D, K, usekmeans, maxiter, sigma) {
-    .Call('_T4cluster_cpp_sc12L', PACKAGE = 'T4cluster', D, K, usekmeans, maxiter, sigma)
+    .Call(`_T4cluster_cpp_sc12L`, D, K, usekmeans, maxiter, sigma)
 }
 
 sp_spkmeans <- function(X, K, initializer, maxiter, abstol, printer) {
-    .Call('_T4cluster_sp_spkmeans', PACKAGE = 'T4cluster', X, K, initializer, maxiter, abstol, printer)
+    .Call(`_T4cluster_sp_spkmeans`, X, K, initializer, maxiter, abstol, printer)
 }
 
 sp_gskmeans <- function(X, K, initializer, maxiter, abstol, printer) {
-    .Call('_T4cluster_sp_gskmeans', PACKAGE = 'T4cluster', X, K, initializer, maxiter, abstol, printer)
+    .Call(`_T4cluster_sp_gskmeans`, X, K, initializer, maxiter, abstol, printer)
 }
 
 fast_loss_prj <- function(nS, dS, mS, PS, xS, muS) {
-    .Call('_T4cluster_fast_loss_prj', PACKAGE = 'T4cluster', nS, dS, mS, PS, xS, muS)
+    .Call(`_T4cluster_fast_loss_prj`, nS, dS, mS, PS, xS, muS)
 }
 
 cpp_LRR <- function(X, par_k, par_r) {
-    .Call('_T4cluster_cpp_LRR', PACKAGE = 'T4cluster', X, par_k, par_r)
+    .Call(`_T4cluster_cpp_LRR`, X, par_k, par_r)
 }
 
 cpp_LRSC <- function(X, K, algtype, tau) {
-    .Call('_T4cluster_cpp_LRSC', PACKAGE = 'T4cluster', X, K, algtype, tau)
+    .Call(`_T4cluster_cpp_LRSC`, X, K, algtype, tau)
 }
 
 cpp_EKSS_0 <- function(X, K, d) {
-    .Call('_T4cluster_cpp_EKSS_0', PACKAGE = 'T4cluster', X, K, d)
+    .Call(`_T4cluster_cpp_EKSS_0`, X, K, d)
 }
 
 cpp_EKSS_T <- function(X, K, d, maxiter) {
-    .Call('_T4cluster_cpp_EKSS_T', PACKAGE = 'T4cluster', X, K, d, maxiter)
+    .Call(`_T4cluster_cpp_EKSS_T`, X, K, d, maxiter)
 }
 
 cpp_EKSS_affinity <- function(labels) {
-    .Call('_T4cluster_cpp_EKSS_affinity', PACKAGE = 'T4cluster', labels)
+    .Call(`_T4cluster_cpp_EKSS_affinity`, labels)
 }
 
 cpp_LSR <- function(data, K, lambda, zerodiag) {
-    .Call('_T4cluster_cpp_LSR', PACKAGE = 'T4cluster', data, K, lambda, zerodiag)
+    .Call(`_T4cluster_cpp_LSR`, data, K, lambda, zerodiag)
 }
 
 cpp_SSQP <- function(data, K, lambda, maxiter, tolerance) {
-    .Call('_T4cluster_cpp_SSQP', PACKAGE = 'T4cluster', data, K, lambda, maxiter, tolerance)
+    .Call(`_T4cluster_cpp_SSQP`, data, K, lambda, maxiter, tolerance)
 }
 
 cpp_shortestpath <- function(locs, dists) {
-    .Call('_T4cluster_cpp_shortestpath', PACKAGE = 'T4cluster', locs, dists)
+    .Call(`_T4cluster_cpp_shortestpath`, locs, dists)
 }
 
 cpp_pdist <- function(X, p) {
-    .Call('_T4cluster_cpp_pdist', PACKAGE = 'T4cluster', X, p)
+    .Call(`_T4cluster_cpp_pdist`, X, p)
 }
 
 cpp_pdist2 <- function(X, Y, p) {
-    .Call('_T4cluster_cpp_pdist2', PACKAGE = 'T4cluster', X, Y, p)
+    .Call(`_T4cluster_cpp_pdist2`, X, Y, p)
 }
 
 cpp_pdistMP <- function(X, p, nCores) {
-    .Call('_T4cluster_cpp_pdistMP', PACKAGE = 'T4cluster', X, p, nCores)
+    .Call(`_T4cluster_cpp_pdistMP`, X, p, nCores)
 }
 
 cpp_sample <- function(N, m, prob, replace) {
-    .Call('_T4cluster_cpp_sample', PACKAGE = 'T4cluster', N, m, prob, replace)
+    .Call(`_T4cluster_cpp_sample`, N, m, prob, replace)
 }
 
 cpp_setdiff <- function(x, y) {
-    .Call('_T4cluster_cpp_setdiff', PACKAGE = 'T4cluster', x, y)
+    .Call(`_T4cluster_cpp_setdiff`, x, y)
 }
 
 label_kmeans <- function(data, K, maxiter) {
-    .Call('_T4cluster_label_kmeans', PACKAGE = 'T4cluster', data, K, maxiter)
+    .Call(`_T4cluster_label_kmeans`, data, K, maxiter)
 }
 
 label_gmm <- function(data, K, maxiter) {
-    .Call('_T4cluster_label_gmm', PACKAGE = 'T4cluster', data, K, maxiter)
+    .Call(`_T4cluster_label_gmm`, data, K, maxiter)
 }
 
 sc_unnormalized <- function(W, K, usekmeans, maxiter) {
-    .Call('_T4cluster_sc_unnormalized', PACKAGE = 'T4cluster', W, K, usekmeans, maxiter)
+    .Call(`_T4cluster_sc_unnormalized`, W, K, usekmeans, maxiter)
 }
 
 sc_normalNJW <- function(W, K, usekmeans, maxiter) {
-    .Call('_T4cluster_sc_normalNJW', PACKAGE = 'T4cluster', W, K, usekmeans, maxiter)
+    .Call(`_T4cluster_sc_normalNJW`, W, K, usekmeans, maxiter)
 }
 
 sc_normalSM <- function(W, K, usekmeans, maxiter) {
-    .Call('_T4cluster_sc_normalSM', PACKAGE = 'T4cluster', W, K, usekmeans, maxiter)
+    .Call(`_T4cluster_sc_normalSM`, W, K, usekmeans, maxiter)
 }
 
 gmm_predict <- function(X, oldweight, oldmeans, oldcovs) {
-    .Call('_T4cluster_gmm_predict', PACKAGE = 'T4cluster', X, oldweight, oldmeans, oldcovs)
+    .Call(`_T4cluster_gmm_predict`, X, oldweight, oldmeans, oldcovs)
 }
 
 gmm_sample <- function(n, oldweight, oldmeans, oldcovs) {
-    .Call('_T4cluster_gmm_sample', PACKAGE = 'T4cluster', n, oldweight, oldmeans, oldcovs)
+    .Call(`_T4cluster_gmm_sample`, n, oldweight, oldmeans, oldcovs)
 }
 
 gmm_loglkd <- function(X, oldweight, oldmeans, oldcovs) {
-    .Call('_T4cluster_gmm_loglkd', PACKAGE = 'T4cluster', X, oldweight, oldmeans, oldcovs)
+    .Call(`_T4cluster_gmm_loglkd`, X, oldweight, oldmeans, oldcovs)
 }
 
 gauss_rmvnorm <- function(N, mu, var) {
-    .Call('_T4cluster_gauss_rmvnorm', PACKAGE = 'T4cluster', N, mu, var)
+    .Call(`_T4cluster_gauss_rmvnorm`, N, mu, var)
+}
+
+integrate_1d <- function(tseq, fval) {
+    .Call(`_T4cluster_integrate_1d`, tseq, fval)
 }
 
